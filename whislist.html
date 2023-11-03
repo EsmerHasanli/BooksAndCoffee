@@ -13,7 +13,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- custom css -->
     <link rel="stylesheet" href="./assets/style/css/style.css">
-    <title>Books</title>
+    <title>Whislist</title>
 </head>
 <body> 
     <header>
@@ -28,12 +28,12 @@
                             <li><a href="./index.html">Home</a></li>
                             <li><a href="./books.html">Books</a></li>
                             <li><a href="./coffee.html">Coffee</a></li>
-                            <li><a href="./whislist.html">Whislist</a></li>
+                            <li><a href="./whislist.html">Whislist<sup id="whish-list-count" class="mx-2"></sup></a></li>
                             <li><a href="./orders.html">Orders</a></li>
                         </ul>
                         <ul id="register col-3">
-                            <li><a href="./">logIn</a></li>
-                            <li><a href="./">signUp</a></li>
+                            <li><a href="./logIn.html">logIn</a></li>
+                            <li><a href="./signUp.html">signUp</a></li>
                         </ul>
                     </div>
                 </div>
@@ -49,6 +49,7 @@
                         <thead>
                           <tr>
                             <th scope="col">#</th>
+                            <th scope="col">Book Cover</th>
                             <th scope="col">Book Name</th>
                             <th scope="col">Author</th>
                             <th scope="col">Year</th>
@@ -56,15 +57,8 @@
                             <th scope="col">Delete</th>
                           </tr>
                         </thead>
-                        <tbody>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td>Jane Eyre</td>
-                            <td>Charlotte Brontë</td>
-                            <td>1847</td>
-                            <td>Romance</td>
-                            <td><button id="delete" type="button" class="btn" style="color: #ffffff; background-color:#a96030; border: none;"><i class="fa-solid fa-trash"></i></button></td>
-                          </tr>
+                        <tbody id="wish-list">
+
                         </tbody>
                       </table>
                 </div>
