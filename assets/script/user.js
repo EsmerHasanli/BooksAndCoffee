@@ -22,25 +22,28 @@ document.addEventListener("DOMContentLoaded", () => {
     const API_BASE_URL = 'http://localhost:3000';
     
     axios.get(API_BASE_URL + '/users')
-      .then( async (response)  => {
-        console.log(response);
+      .then(  (response)  => {
+        
 
-        const users = await response.data;
+        const users = response.data;
         console.log(users);
 
         const dataFromLocal = JSON.parse(localStorage.getItem('users')); 
-    
-        let i = 0;
-        const newArr = [];
-        while (i < dataFromLocal.length) {
-          const findedUser = users.find((user) => user.id == dataFromLocal[i]);
-          if (findedUser) {
-              newArr.push(findedUser);
-              console.log(newArr);
-            }
-            i++;
+        console.log(dataFromLocal)
+
+       
+        const findedUser = users.find((user) => user.id == dataFromLocal);
+        if (findedUser) {
+          userInfo.innerHTML = `
+            <h5>${findedUser.name}</h5>
+            <li>Email: ${findedUser.email}</li>
+            <li>Password: ${findedUser.password}</li>
+            <li>Balance: ${findedUser.balance}</li>
+          `
+          
         }
-        console.log(newArr); 
+         
+          
       })
   });
   

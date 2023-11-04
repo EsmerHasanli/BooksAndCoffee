@@ -1,3 +1,5 @@
+
+
 //whish count
 if (JSON.parse(localStorage.getItem("fav"))) {
   let wishCount = JSON.parse(localStorage.getItem("fav")).length;
@@ -28,7 +30,7 @@ logInForm.addEventListener("submit", async function  (e) {
     .then((response) => {
       const user = response.data[0];
       if (user && user.password === password && user.email === email) {
-        localStorage.setItem('users', user.id);
+        localStorage.setItem('users', JSON.stringify({id: user.id, email:user.email}));
         Swal.fire({
           title: "Login Successful",
           text: "You are now logged in.",
@@ -39,15 +41,15 @@ logInForm.addEventListener("submit", async function  (e) {
         const userBar = document.querySelector("#loged")
         const registerBar = document.querySelector('#register')
 
-        const loggedUserId = localStorage.getItem('users');
+        const loggedUserId = JSON.parse(localStorage.getItem('users'));
 
-        if (loggedUserId) {
-          console.log(loggedUserId);
+        if (loggedUserId.id) {
+        
           userBar.classList.replace('d-none', 'd-flex')
           registerBar.classList.replace('d-flex', 'd-none')
-          console.log(loggedUserId);
+          
           let username = document.querySelector('#username')
-          username.textContent = email
+          username.textContent = loggedUserId.email
           }
 
       } else {

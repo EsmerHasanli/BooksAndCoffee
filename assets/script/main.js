@@ -22,6 +22,19 @@ if (path == "/books.html") {
 
   document.addEventListener("DOMContentLoaded", async () => {
     //get books
+
+    const userBar = document.querySelector("#loged")
+    const username = document.querySelector("#username")
+    const registerBar = document.querySelector('#register')
+    const loggedUserId = JSON.parse(localStorage.getItem('users'));
+    console.log(loggedUserId)
+    if (loggedUserId.id) {
+      
+      userBar.classList.replace('d-none', 'd-flex')
+      registerBar.classList.replace('d-flex', 'd-none')
+    
+      username.textContent = loggedUserId.email
+      }
     const books = await getAllBooks();
     books.forEach((book) => {
       booksWrapper.innerHTML += `
