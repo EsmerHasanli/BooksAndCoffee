@@ -146,51 +146,6 @@ if (path == "/books.html") {
     });
   }
 
-  //#region add new book
-
-  const addNewBook = async (e) => {
-    e.preventDefault();
-    let name = document.querySelector(".name").value;
-    let pageCount = document.querySelector(".pg-count").value;
-    let imgLink = document.querySelector(".img-link").value;
-    let author = document.querySelector(".author").value;
-    let description = document.querySelector(".description").value;
-    let genre = document.querySelector(".genre").value;
-    let createDate = document.querySelector(".description").value;
-
-    const lastBook = booksData[booksData.length - 1];
-    const lastElementId = lastBook ? lastBook.id + 1 : 1;
-
-    const data = {
-      name,
-      pageCount,
-      imgLink,
-      author,
-      description,
-      genre,
-      createDate,
-      id: lastElementId,
-    };
-
-    console.log(data);
-
-    axios.post(API_BASE_URL + "/books"), {};
-  };
-  //добовляем
-  submitBtn.addEventListener("click", (e) => addNewBook(e));
-  submitBtn.addEventListener("click", (e) => addNewBook(e));
-  // закрывает модалку
-  modal.addEventListener("click", () => {
-    modal.className = "modal";
-  });
-  // не реагирует на клик по белому окну в модалке
-  modalWrapper.addEventListener("click", (e) => e.stopPropagation());
-  // открывает модалку
-  addNewBtn.addEventListener("click", () => {
-    console.log("hello");
-    modal.className += " active";
-  });
-  //#endregion
 }
 
 if (path == "/whislist.html") {
